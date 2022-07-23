@@ -7,7 +7,6 @@ enum class CampoEvento {
 data class Campo(val linha: Int, val coluna: Int) {
 
     private val vizinhos = ArrayList<Campo>()
-
     // callbacks recebem como parametro uma funcao com dois parametros e retorna unit
     private val callbacks = ArrayList<(Campo, CampoEvento) -> Unit>()
 
@@ -47,6 +46,7 @@ data class Campo(val linha: Int, val coluna: Int) {
             marcado = !marcado
             //se o evento de marcado for verdadeiro, retorna marcacao, senão retorna desmarcacao
             val evento = if(marcado) CampoEvento.MARCACAO else CampoEvento.DESMARCACAO
+            callbacks.forEach { it(this, evento) }
 
         }
     }

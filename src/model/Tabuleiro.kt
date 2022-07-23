@@ -52,7 +52,7 @@ class Tabuleiro(val quantidadeLinhas: Int, val quantidadeColunas: Int, private v
         var colunaSorteada = -1
         var quantidadeMinasAtual = 0
 
-        while (quantidadeMinas < this.quantidadeMinas) {
+        while (quantidadeMinasAtual < this.quantidadeMinas) {
             linhaSorteada = gerador.nextInt(quantidadeLinhas)
             colunaSorteada = gerador.nextInt(quantidadeColunas)
 
