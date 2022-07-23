@@ -1,6 +1,6 @@
 package model
 
-import kotlin.random.Random
+import java.util.*
 
 enum class TabuleiroEvento {
     VITORIA,
@@ -46,7 +46,7 @@ class Tabuleiro(val quantidadeLinhas: Int, val quantidadeColunas: Int, private v
     }
 
     private fun sorteiaMinas() {
-        val gerador = java.util.Random()
+        val gerador = Random()
 
         var linhaSorteada = -1
         var colunaSorteada = -1
@@ -56,7 +56,7 @@ class Tabuleiro(val quantidadeLinhas: Int, val quantidadeColunas: Int, private v
             linhaSorteada = gerador.nextInt(quantidadeLinhas)
             colunaSorteada = gerador.nextInt(quantidadeColunas)
 
-            val campoSorteado = campos[linhaSorteada] [colunaSorteada]
+            val campoSorteado = campos[linhaSorteada][colunaSorteada]
             if (campoSorteado.seguro) {
                 campoSorteado.minar()
                 quantidadeMinasAtual++
@@ -72,11 +72,11 @@ class Tabuleiro(val quantidadeLinhas: Int, val quantidadeColunas: Int, private v
     }
 
     private fun verificaDerrotaOuVitoria(campo: Campo, campoEvento: CampoEvento) {
-       if (campoEvento == CampoEvento.EXPLOSAO) {
-           callbacks.forEach { it(TabuleiroEvento.DERROTA) }
-       } else if(objetivoAlcancado()) {
-           callbacks.forEach { it(TabuleiroEvento.VITORIA) }
-       }
+        if (campoEvento == CampoEvento.EXPLOSAO) {
+            callbacks.forEach { it(TabuleiroEvento.DERROTA) }
+        } else if (objetivoAlcancado()) {
+            callbacks.forEach { it(TabuleiroEvento.VITORIA) }
+        }
     }
 
     fun forEachCampo(callback: (Campo) -> Unit) {
