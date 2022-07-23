@@ -42,7 +42,7 @@ data class Campo(val linha: Int, val coluna: Int) {
         }
     }
 
-    fun alterarMarcacao() {
+    fun alteraMarcacao() {
         if (fechado) {
             marcado = !marcado
             //se o evento de marcado for verdadeiro, retorna marcacao, senão retorna desmarcacao
