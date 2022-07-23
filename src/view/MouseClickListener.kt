@@ -10,7 +10,7 @@ class MouseClickListener(
     private val onClickRight: (Campo) -> Unit
 ) : MouseListener {
     override fun mouseClicked(e: MouseEvent?) {
-    //Not implemented
+        //Not implemented
     }
 
     override fun mousePressed(e: MouseEvent?) {
@@ -21,14 +21,14 @@ class MouseClickListener(
     }
 
     override fun mouseReleased(e: MouseEvent?) {
-    //Not implemented
+        //Not implemented
     }
 
     override fun mouseEntered(e: MouseEvent?) {
-    //Not implemented
+        //Not implemented
     }
 
     override fun mouseExited(e: MouseEvent?) {
-    //Not implemented
+        //Not implemented
     }
 }
